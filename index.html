@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Registration Form</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/formhack.css">
+
+</head>
+<body onload="generateCaptcha()">
+
+	<div class="container" style="width:900px;">
+		<form class="registration" id="registration">
+			<h2>CSC 642 Summer 2018 Individual Assignment Ekta Tandel</h2>
+			<h2>Registration Form</h2>
+			<table>
+			
+			
+		<tr style="width:800px;">
+			<td style="width:300px">
+			<label for="firstname">
+				<span>First Name</span>
+				<input type="text" id="firstname" maxlength="25" minlength="8" required>
+				<ul class="input-requirements">
+					<li>Required (may enter up to 25 characters)</li>
+					<li>Only letters allowed</li>
+				</ul>
+				
+			</label></td>
+			<td style="width:300px">
+			<label for="lastname">
+				<span>Last Name</span>
+				<input type="text" id="lastname" maxlength="25" minlength="3" required>
+				<ul class="input-requirements">
+					<li>Required (may enter up to 25 characters)</li>
+					<li>Only letters allowed</li>
+				</ul>
+				
+			</label></td>
+		</tr>
+			</table>
+			<hr>
+
+		<table>
+			
+			
+		<tr style="width:800px;">
+			<td style="width:300px">
+			<label for="streetaddress">
+				<span>Street Address</span>
+				<input type="text" id="streetaddress" maxlength="40" minlength="8" required>
+				<ul class="input-requirements">
+					<li>Required</li>
+					<li>Enter up to 40 alpha numeric characters</li>
+				</ul>
+				
+			</label></td>
+			<td style="width:300px">
+			<label for="city">
+				<span>City</span>
+				<input type="text" id="city" maxlength="40" minlength="3" required>
+				<ul class="input-requirements">
+					<li>Required</li>
+					<li>Letters only (upto 40)</li>
+				</ul>
+				
+			</label></td>
+		</tr>
+			</table>
+
+			<table>
+			
+			
+		<tr>
+			<td style="width:210px">
+			<label for="state">
+				<span>State</span>
+				<input type="text" id="state" maxlength="40" minlength="8" required>
+				<ul class="input-requirements">
+					<li>Required</li>
+					<li>Letters only (upto 40)</li>
+				</ul>
+				
+			</label></td>
+			<td style="width:150px">
+			<label for="zipcode">
+				<span>Zipcode</span>
+				<input type="number" id="zipcode" maxlength="99999" minlength="10000" required>
+				<ul class="input-requirements">
+					<li>Need 5 positive numbers to be valid</li>
+				</ul>
+				
+			</label></td>
+
+			<td style="width:200px">
+			<label for="phonenumber">
+				<span>Phone Number</span>
+				<input type="number" id="phonenumber" maxlength="9999999" minlength="1000000" required>
+				<ul class="input-requirements">
+					<li>Need 7 positive numbers to be valid</li>
+				</ul>
+				
+			</label></td>
+		</tr>
+			</table>
+
+			<table>
+			
+			
+		<tr style="width:800px;">
+			<td style="width:300px">
+			<label for="education">
+				<div class="dropdown">
+				<span>Education</span><br>
+				<select>
+				<option value="defaultselect">Select One</option>
+  			    <option value="highschool">High School</option>
+  				<option value="college">College</option>
+  				<option value="graduate">Graduate Studies</option>
+  				<option value="phd">PhD</option>
+				</select>
+				<ul class="input-requirements">
+					<li>Optional</li>
+				</ul>
+				</div>
+			</label></td>
+			<td style="width:300px">
+			<label for="city">
+				<div class="dropdown">
+				<span>Salary</span><br>
+				<select> 
+				<option value="defaultselect">Select One</option>
+  			    <option value="highschool">less than $ 50K</option>
+  				<option value="college">between $50-100 K</option>
+  				<option value="graduate">above $100 K</option>
+				</select>
+				<ul class="input-requirements">
+					<li>Optional</li>
+				</ul>
+				</div>
+			</label></td>
+		</tr>
+			</table>
+
+
+			
+			<hr>
+			<table>
+		<tr>
+				
+			<label for="email">
+				<span>Email</span>
+
+				<input type="text" id="email" minlength="3" required>
+
+				<ul class="input-requirements">
+					<li>At least 3 characters long</li>
+					<li>Must contain @</li>
+				</ul>
+			</label>
+			
+			<label for="password">
+				<span>Password</span>
+
+				<input type="password" id="password" maxlength="40" minlength="8" required>
+
+				<ul class="input-requirements">
+					<li>At least 8 characters long (and less than 40 characters)</li>
+				</ul>
+			</label>
+				<label for="password_repeat">
+				<span>Repeat Password</span>
+				<input type="password" id="password_repeat" maxlength="40" minlength="8" required>
+			</label>
+		
+			<hr>
+			
+			
+		<tr style="width:800px;">
+			<td style="width:300px">
+			<label for="captcha">
+				<span>Captcha</span>
+			<input type="number" id="captcha" disabled/>
+				
+			</label></td>
+			<td style="width:300px">
+			<label for="entercaptcha">
+				<span>Enter the number you see on the left</span>
+			<input type="number" id="entercaptcha"/>
+				
+			</label></td>
+		</tr>
+			</table>
+
+			
+
+		
+			
+		
+			<button onclick="generateCaptcha(); ClearField()">Regenerate Captcha</button>
+			
+
+			<hr>
+
+
+			<table>
+
+				 <label>
+        		<input type="checkbox" name="remember" style="margin-bottom:15px" required> By checking this box you agree to our <a href="terms.html" style="color:dodgerblue">Terms & Privacy</a>.
+     			 </label>
+
+
+			<label>
+			<button onclick="check()" type="submit">Submit to Review</td>
+			<label>
+		</tr>
+	</table>
+		</form>
+	</div>
+
+
+
+<script>
+var captcha;
+ function ClearField() {
+
+     document.getElementById("entercaptcha").value = "";
+}
+
+function generateCaptcha() {
+    var a = Math.floor((Math.random() * 10));
+    var b = Math.floor((Math.random() * 10));
+    var c = Math.floor((Math.random() * 10));
+    var d = Math.floor((Math.random() * 10));
+ 
+    captcha=a.toString()+b.toString()+c.toString()+d.toString();
+    
+    document.getElementById("captcha").value = captcha;
+}
+ 
+function check(){
+    var input=document.getElementById("inputText").value;
+ 
+    if(input==captcha){
+    
+    }
+    else{
+        alert("Captcha does not match, please re-enter");
+    }
+}
+</script>
+    <script src="script.js"></script>
+</body>
+</html>
