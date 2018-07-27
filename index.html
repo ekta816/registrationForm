@@ -15,7 +15,7 @@
 <body onload="generateCaptcha()">
 
 	<div class="container" style="width:900px;">
-		<form class="registration" id="registration">
+		<form class="registration" id="registration" action="/action.php">
 			<h2>CSC 642 Summer 2018 Individual Assignment Ekta Tandel</h2>
 			<h2>Registration Form</h2>
 			<table>
@@ -80,7 +80,7 @@
 			<td style="width:210px">
 			<label for="state">
 				<span>State</span>
-				<input type="text" id="state" maxlength="40" minlength="8" required>
+				<input type="text" id="state" maxlength="40" minlength="2" required>
 				<ul class="input-requirements">
 					<li>Required</li>
 					<li>Letters only (upto 40)</li>
@@ -90,7 +90,7 @@
 			<td style="width:150px">
 			<label for="zipcode">
 				<span>Zipcode</span>
-				<input type="number" id="zipcode" maxlength="99999" minlength="10000" required>
+				<input type="number" id="zipcode" maxlength="5" minlength="5" required>
 				<ul class="input-requirements">
 					<li>Need 5 positive numbers to be valid</li>
 				</ul>
@@ -102,7 +102,7 @@
 				<span>Phone Number</span>
 				<input type="number" id="phonenumber" maxlength="9999999" minlength="1000000" required>
 				<ul class="input-requirements">
-					<li>Need 7 positive numbers to be valid</li>
+					<li>Enter phone number without area code</li>
 				</ul>
 				
 			</label></td>
@@ -159,7 +159,7 @@
 				<input type="text" id="email" minlength="3" required>
 
 				<ul class="input-requirements">
-					<li>At least 3 characters long</li>
+					<li>Required</li>
 					<li>Must contain @</li>
 				</ul>
 			</label>

@@ -133,12 +133,12 @@ var streetaddressValidityChecks = [
 		isInvalid: function(input) {
 			return input.value.length < 3;
 		},
-		invalidityMessage: 'This input needs to be at least 3 characters',
+		invalidityMessage: 'Required',
 		element: document.querySelector('label[for="streetaddress"] .input-requirements li:nth-child(1)')
 	},
 	{
 		isInvalid: function(input) {
-			var illegalCharacters = input.value.match(/[^a-zA-Z0-9]/g);
+			var illegalCharacters = input.value.match(/[^a-zA-Z0-9_ ]/g);
 			return illegalCharacters ? true : false;
 		},
 		invalidityMessage: 'Only letters and numbers are allowed',
@@ -151,12 +151,12 @@ var cityValidityChecks = [
 		isInvalid: function(input) {
 			return input.value.length < 3;
 		},
-		invalidityMessage: 'This input needs to be at least 3 characters',
+		invalidityMessage: 'Required',
 		element: document.querySelector('label[for="city"] .input-requirements li:nth-child(1)')
 	},
 	{
 		isInvalid: function(input) {
-			var illegalCharacters = input.value.match(/[^a-zA-Z]/g);
+			var illegalCharacters = input.value.match(/[^a-zA-Z_ ]/g);
 			return illegalCharacters ? true : false;
 		},
 		invalidityMessage: 'Only letters are allowed',
@@ -164,23 +164,6 @@ var cityValidityChecks = [
 	}
 ];
 
-var cityValidityChecks = [
-	{
-		isInvalid: function(input) {
-			return input.value.length < 3;
-		},
-		invalidityMessage: 'This input needs to be at least 3 characters',
-		element: document.querySelector('label[for="city"] .input-requirements li:nth-child(1)')
-	},
-	{
-		isInvalid: function(input) {
-			var illegalCharacters = input.value.match(/[^a-zA-Z]/g);
-			return illegalCharacters ? true : false;
-		},
-		invalidityMessage: 'Only letters are allowed',
-		element: document.querySelector('label[for="city"] .input-requirements li:nth-child(2)')
-	}
-];
 
 
 var stateValidityChecks = [
@@ -188,19 +171,58 @@ var stateValidityChecks = [
 		isInvalid: function(input) {
 			return input.value.length < 3;
 		},
-		invalidityMessage: 'This input needs to be at least 3 characters',
+		invalidityMessage: 'Required',
 		element: document.querySelector('label[for="state"] .input-requirements li:nth-child(1)')
 	},
 	{
 		isInvalid: function(input) {
-			var illegalCharacters = input.value.match(/[^a-zA-Z]/g);
+			var illegalCharacters = input.value.match(/[^a-zA-Z_ ]/g);
 			return illegalCharacters ? true : false;
 		},
 		invalidityMessage: 'Only letters are allowed',
 		element: document.querySelector('label[for="state"] .input-requirements li:nth-child(2)')
 	}
 ];
+
+var zipcodeValidityChecks = [
+	{
+		isInvalid: function(input) {
+			return input.value < 10000 | input.value > 99999;
+		},
+		invalidityMessage: 'Enter 5 positive numbers',
+		element: document.querySelector('label[for="zipcode"] .input-requirements li:nth-child(1)')
+	}
+];
+
+var phonenumberValidityChecks = [
+	{
+		isInvalid: function(input) {
+			return input.value < 1000000 | input.value > 9999999;
+		},
+		invalidityMessage: 'Enter 7 positive numbers',
+		element: document.querySelector('label[for="phonenumber"] .input-requirements li:nth-child(1)')
+	}
+];
 /*********************************Email and Password Validity Checks***********************************/
+
+var emailValidityChecks = [
+	{
+		isInvalid: function(input) {
+			return input.value.length < 3;
+		},
+		invalidityMessage: 'Required',
+		element: document.querySelector('label[for="email"] .input-requirements li:nth-child(1)')
+	},
+	{
+		isInvalid: function(input) {
+			return !input.value.match(/\@/g);
+		},
+		invalidityMessage: 'You need an @for the email to be valid',
+		element: document.querySelector('label[for="email"] .input-requirements li:nth-child(2)')
+	}
+];
+
+
 var passwordValidityChecks = [
 	{
 		isInvalid: function(input) {
@@ -238,6 +260,9 @@ var lastnameInput = document.getElementById('lastname');
 var streetaddressInput = document.getElementById('streetaddress');
 var cityInput = document.getElementById('city');
 var stateInput = document.getElementById('state');
+var zipcodeInput = document.getElementById('zipcode');
+var phonenumberInput = document.getElementById('phonenumber');
+var emailInput = document.getElementById('email');
 var passwordInput = document.getElementById('password');
 var passwordRepeatInput = document.getElementById('password_repeat');
 
@@ -255,6 +280,15 @@ cityInput.CustomValidation.validityChecks = cityValidityChecks;
 
 stateInput.CustomValidation = new CustomValidation(stateInput);
 stateInput.CustomValidation.validityChecks = stateValidityChecks;
+
+zipcodeInput.CustomValidation = new CustomValidation(zipcodeInput);
+zipcodeInput.CustomValidation.validityChecks = zipcodeValidityChecks;
+
+phonenumberInput.CustomValidation = new CustomValidation(phonenumberInput);
+phonenumberInput.CustomValidation.validityChecks = phonenumberValidityChecks;
+
+emailInput.CustomValidation = new CustomValidation(emailInput);
+emailInput.CustomValidation.validityChecks = emailValidityChecks;
 
 passwordInput.CustomValidation = new CustomValidation(passwordInput);
 passwordInput.CustomValidation.validityChecks = passwordValidityChecks;
