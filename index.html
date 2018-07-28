@@ -15,7 +15,7 @@
 <body onload="generateCaptcha()">
 
 	<div class="container" style="width:900px;">
-		<form class="registration" id="registration">
+		<form class="registration" id="registration" onsubmit="results();">
 			<h2>CSC 642 Summer 2018 Individual Assignment Ekta Tandel</h2>
 			<h2>Registration Form</h2>
 			<table>
@@ -193,7 +193,6 @@
 				<span>Enter the number you see on the left</span>
 			<input type="number" id="entercaptcha"/>
 			
-				
 			</label></td>
 		</tr>
 			</table>
@@ -217,7 +216,7 @@
 
 
 			<label>
-				<button onclick="check();results();"  type="submit">Submit to Review</td>
+				<button type="submit" onclick="check();" id="submit">Submit to Review</td>
 			<label>
 		</tr>
 	</table>
@@ -246,15 +245,17 @@ function generateCaptcha() {
  
 function check(){
     var input=document.getElementById("entercaptcha").value;
- 
+ 	
     if(input==captcha){
-    
+    	alert("You're not a robot, captcha matches");
+
     }
     else{
     	alert("Captcha does not match!");
     }
   
 }
+
 
 
 </script>
