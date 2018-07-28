@@ -321,3 +321,13 @@ submit.addEventListener('click', validate);
 form.addEventListener('submit', validate);
 
 
+
+function results(){
+
+	var firstname = document.getElementById('firstname').value;
+	var lastname = document.getElementById('lastname').value;
+
+	document.write("<h1> Thank you, please review your responses</h1>");
+	document.write("<p>Firstname: </p>" + firstname + "<br/>");
+	document.write("<p>Lastname: </p>" + lastname + "<br/>");
+}
