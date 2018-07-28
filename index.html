@@ -25,7 +25,7 @@
 			<td style="width:300px">
 			<label for="firstname">
 				<span>First Name</span>
-				<input type="text" id="firstname" name="firstname" maxlength="25" minlength="8" required>
+				<input type="text" id="firstname" name="firstname" maxlength="25" minlength="3" required>
 				<ul class="input-requirements">
 					<li>Required (may enter up to 25 characters)</li>
 					<li>Only letters allowed</li>
@@ -192,6 +192,7 @@
 			<label for="entercaptcha">
 				<span>Enter the number you see on the left</span>
 			<input type="number" id="entercaptcha"/>
+			
 				
 			</label></td>
 		</tr>
@@ -216,7 +217,7 @@
 
 
 			<label>
-				<button onclick="check(); return results();" type="submit">Submit to Review</td>
+				<button onclick="check();results();"  type="submit">Submit to Review</td>
 			<label>
 		</tr>
 	</table>
@@ -244,15 +245,18 @@ function generateCaptcha() {
 }
  
 function check(){
-    var input=document.getElementById("inputText").value;
+    var input=document.getElementById("entercaptcha").value;
  
     if(input==captcha){
     
     }
     else{
-        alert("Captcha does not match, please re-enter");
+    	alert("Captcha does not match!");
     }
+  
 }
+
+
 </script>
     <script src="script.js"></script>
 </body>
